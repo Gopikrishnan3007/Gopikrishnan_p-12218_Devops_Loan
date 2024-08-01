@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import com.gopi.restapp.model.Customer;
 import com.gopi.restapp.model.Loan;
 import com.gopi.restapp.repository.LoanRepo;
 
@@ -48,7 +47,7 @@ public class LoanRepoImpl implements LoanRepo {
 	public String update(Loan loan) {
 		if (loan != null) {
 			entityManager.merge(loan);
-			return "Success";
+			return "Success to Update";
 		} else {
 			return "Fail to Update";
 		}
@@ -59,7 +58,7 @@ public class LoanRepoImpl implements LoanRepo {
 	public String save(Loan loan) {
 		if (loan != null) {
 			entityManager.merge(loan);
-			return "Success";
+			return "Success to Add";
 		} else {
 			return "Fail to Add";
 		}
@@ -71,7 +70,7 @@ public class LoanRepoImpl implements LoanRepo {
 		if (id1.isPresent()) {
 			String jpql = "DELETE FROM Loan WHERE loanId = " + id;
 			entityManager.createQuery(jpql).executeUpdate();
-			return "Success";
+			return "Success to Delete";
 		} else {
 			return "Fail to Delete";
 		}
